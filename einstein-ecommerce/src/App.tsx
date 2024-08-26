@@ -1,7 +1,9 @@
+import NotificationBar from './components/molecules/NotificationBar'
+
 const App = () => {
   return (
     <>
-      <div className="text-blue-500 text-4xl font-bold text-center">oooooi</div>
+      <NotificationBar message="Ganhe 25% OFF no seu primeiro pedido." />
     </>
   )
 }
