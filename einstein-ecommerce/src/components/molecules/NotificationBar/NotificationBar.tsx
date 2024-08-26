@@ -5,7 +5,7 @@ type TNotificationBarProps = {
 const NotificationBar = (props: TNotificationBarProps) => {
   const { message } = props
   return (
-    <div className="bg-primary-light min-h-[40px] flex items-center justify-center">
+    <div className="bg-primary-light min-h-[40px] flex items-center justify-center"            data-testid="notification-bar">
       <p className="text-secondary-light text-sm font-normal">{message}</p>
     </div>
   )

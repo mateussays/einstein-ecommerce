@@ -12,7 +12,7 @@ export default {
           dark: '#F6F6F6',
           light: '#FFFFFF'
         },
-        terciary: {
+        tertiary: {
           dark: '#5C5F6A',
           light: '#878A92',
           lightest: '#E6E7E8'

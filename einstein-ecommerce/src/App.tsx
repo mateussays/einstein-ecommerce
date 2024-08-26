@@ -1,9 +1,13 @@
-import NotificationBar from './components/molecules/NotificationBar'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import Navigation from './components/molecules/Navigation'
 
 const App = () => {
   return (
     <>
-      <NotificationBar message="Ganhe 25% OFF no seu primeiro pedido." />
+      <Router>
+        <Navigation />
+      </Router>
     </>
   )
 }
