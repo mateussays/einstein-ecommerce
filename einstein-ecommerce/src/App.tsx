@@ -3,7 +3,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/organisms/Header'
 import NotificationBar from './components/molecules/NotificationBar'
 import Breadcrumb from './components/atoms/Breadcrumb'
-import CategoriesFilter from './components/molecules/CategoriesFilter'
+import Button from './components/atoms/Button'
+
 
 const App = () => {
   return (
@@ -15,8 +16,8 @@ const App = () => {
           <Breadcrumb currentPage="Home" />
         </div>
 
-        <div className="ml-5 max-w-[250px]">
-          <CategoriesFilter />
+        <div className="flex items-center justify-center">
+          <Button label="Adicionar ao carrinho" onClick={() => console.log('Adicionado ao carrinho')} className='rounded-b' />
         </div>
       </Router>
     </>

@@ -9,7 +9,7 @@ const CategoriesFilter = () => {
   ]
 
   return (
-    <div className="border rounded-md border-tertiary-lightest py-4 px-6 w-auto">
+    <div className="border rounded-md border-tertiary-lightest py-4 px-6 w-full">
       <h2 className='text-sm text-primary-dark font-medium mb-4'>Categories</h2>
       <div className="">
         {categories.map(category => (
