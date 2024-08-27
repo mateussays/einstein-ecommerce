@@ -1,12 +1,12 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import Navigation from './components/molecules/Navigation'
+import SearchBar from './components/molecules/SearchBar/SearchBar'
 
 const App = () => {
   return (
     <>
       <Router>
-        <Navigation />
+        <SearchBar />
       </Router>
     </>
   )

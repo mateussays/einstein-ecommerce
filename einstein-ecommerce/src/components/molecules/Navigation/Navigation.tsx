@@ -1,6 +1,9 @@
 import { useState } from 'react'
+
 import { NavLink } from 'react-router-dom'
+
 import navigationOptions from './navigationOptions'
+
 import Icon from '../../atoms/Icon/'
 
 const Navigation = () => {
