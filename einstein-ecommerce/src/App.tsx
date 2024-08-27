@@ -1,12 +1,13 @@
 import { BrowserRouter as Router } from 'react-router-dom'
-
-import SearchBar from './components/molecules/SearchBar/SearchBar'
+import CartBadge from './components/atoms/CartBadge'
 
 const App = () => {
   return (
     <>
       <Router>
-        <SearchBar />
+        <div className="flex justify-center items-center h-screen">
+          <CartBadge count={3} />
+        </div>
       </Router>
     </>
   )

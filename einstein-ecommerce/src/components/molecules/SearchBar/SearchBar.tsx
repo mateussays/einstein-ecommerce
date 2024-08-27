@@ -1,5 +1,5 @@
 import Icon from '../../atoms/Icon/Icon'
-import { Input } from '../../atoms/Input'
+import Input from '../../atoms/Input/'
 
 const SearchBar = () => {
   return (
