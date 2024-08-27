@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/organisms/Header'
 import NotificationBar from './components/molecules/NotificationBar'
 import Breadcrumb from './components/atoms/Breadcrumb'
+import QuantityInput from './components/atoms/QuantityInput'
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
         </div>
 
         <div className="flex items-center justify-center">
+          <QuantityInput initialQuantity={1} onDelete={() => console.log('Deleted')} />
         </div>
       </Router>
     </>
