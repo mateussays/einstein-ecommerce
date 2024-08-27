@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/organisms/Header'
 import NotificationBar from './components/molecules/NotificationBar'
 import Breadcrumb from './components/atoms/Breadcrumb'
-import Button from './components/atoms/Button'
+import ProductList from './components/organisms/ProductList'
 
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         </div>
 
         <div className="flex items-center justify-center">
-          <Button label="Adicionar ao carrinho" onClick={() => console.log('Adicionado ao carrinho')} className='rounded-b' />
+          <ProductList />
         </div>
       </Router>
     </>
