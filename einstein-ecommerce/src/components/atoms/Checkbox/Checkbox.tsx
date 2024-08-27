@@ -7,7 +7,7 @@ type CheckboxProps = {
 
 const Checkbox = ({ label, checked, onChange, value }: CheckboxProps) => {
   return (
-    <label className="flex items-center space-x-2 cursor-pointer">
+    <label className="flex items-center cursor-pointer">
       <input
         type="checkbox"
         className="hidden"
@@ -37,7 +37,7 @@ const Checkbox = ({ label, checked, onChange, value }: CheckboxProps) => {
           </svg>
         )}
       </div>
-      {label && <span className="text-tertiary-dark text-sm font-normal">{label}</span>}
+      {label && <span className="text-tertiary-dark text-sm font-normal ml-1">{label}</span>}
     </label>
   )
 }
