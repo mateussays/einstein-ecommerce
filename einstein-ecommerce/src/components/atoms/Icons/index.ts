@@ -1,6 +1,7 @@
-export { MenuIcon } from './menuIcon'
+export { MenuIcon } from './MenuIcon'
 export { CloseIcon } from './CloseIcon'
 export { CartIcon } from './CartIcon'
 export { UserIcon } from './UserIcon'
 export { SearchIcon } from './SearchIcon'
 export { LogoIcon } from './LogoIcon'
+export { ChevronRight } from './ChevronRight'
