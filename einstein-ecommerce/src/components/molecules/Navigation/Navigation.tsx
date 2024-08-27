@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import navigationOptions from './navigationOptions'
 
-import Icon from '../../atoms/Icon/'
+import { CloseIcon, MenuIcon } from '../../atoms/Icons'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,7 +16,7 @@ const Navigation = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="focus:outline-none"
         >
-          <Icon name={isOpen ? 'close' : 'menu'} />
+          {!isOpen ? (<MenuIcon />) : (<CloseIcon />)}
         </button>
       </div>
       <ul

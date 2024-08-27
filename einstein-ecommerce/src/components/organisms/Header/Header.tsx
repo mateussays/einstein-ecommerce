@@ -6,13 +6,13 @@ import SearchBar from '../../molecules/SearchBar/SearchBar'
 
 const Header = () => {
   return (
-    <header className="flex items-center w-full justify-around py-5">
+    <header className="flex items-center w-full justify-between py-5 pl-[42px] pr-[153px]">
       <Logo />
       <Navigation />
       <SearchBar />
       <div className="flex items center gap-8">
         <CartBadge count={3} />
-        <IconButton name="user" onClick={() => {}} />
+        <IconButton onClick={() => {}} />
       </div>
     </header>
   )

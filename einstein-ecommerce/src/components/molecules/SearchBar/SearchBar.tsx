@@ -1,4 +1,4 @@
-import Icon from '../../atoms/Icon/Icon'
+import { SearchIcon } from '../../atoms/Icons'
 import Input from '../../atoms/Input/'
 
 const SearchBar = () => {
@@ -8,7 +8,7 @@ const SearchBar = () => {
         placeholder="Procure um produto"
         value=""
         onChange={() => {}}
-        icon={<Icon name="search" />}
+        icon={<SearchIcon />}
       />
     </div>
   )

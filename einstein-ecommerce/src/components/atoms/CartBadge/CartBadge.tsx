@@ -1,4 +1,4 @@
-import Icon from '../Icon'
+import { CartIcon } from "../Icons"
 
 type TCartBadgeProps = {
   count: number
@@ -13,8 +13,7 @@ const CartBadge = (props: TCartBadgeProps) => {
           {count}
         </span>
       )}
-      {/* Icon */}
-      <Icon name="cart" />
+      <CartIcon />
     </div>
   )
 }

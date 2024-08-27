@@ -1,17 +1,16 @@
-import Icon from "../Icon/Icon";
+import { UserIcon } from "../Icons";
 
 type TIconButtonProps = {
-  name: 'menu' | 'close' | 'search' | 'logo' | 'cart' | 'user'
   onClick: () => void
 }
 
 
 const IconButton = (props: TIconButtonProps) => {
-  const { name, onClick } = props;
+  const { onClick } = props;
 
   return (
     <button onClick={onClick} className="focus:outline-none">
-      <Icon name={name} />
+      <UserIcon />
     </button>
   );
 }
