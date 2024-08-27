@@ -3,10 +3,11 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/organisms/Header'
 import NotificationBar from './components/molecules/NotificationBar'
 import Breadcrumb from './components/atoms/Breadcrumb'
-import ProductList from './components/organisms/ProductList'
+
 
 
 const App = () => {
+
   return (
     <>
       <Router>
@@ -17,7 +18,6 @@ const App = () => {
         </div>
 
         <div className="flex items-center justify-center">
-          <ProductList />
         </div>
       </Router>
     </>

@@ -1,17 +1,14 @@
 const ChevronRight = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    stroke="currentColor"
+    fill="currentColor"
+    stroke-width="0"
     viewBox="0 0 24 24"
-    fill="none"
+    height="24px"
+    width="24px"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M14.8117 11.4673C15.0609 11.7443 15.063 12.1958 14.8163 12.4757L9.94859 18L9.04604 16.9967L13.4672 11.9793L9 7.01366L9.89321 6L14.8117 11.4673Z"
-      fill="#71747E"
-    />
+    <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path>
   </svg>
 )
 
