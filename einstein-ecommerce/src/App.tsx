@@ -1,12 +1,14 @@
 import { BrowserRouter as Router } from 'react-router-dom'
-import CartBadge from './components/atoms/CartBadge'
+import Header from './components/organisms/Header'
+import NotificationBar from './components/molecules/NotificationBar/NotificationBar'
 
 const App = () => {
   return (
     <>
       <Router>
-        <div className="flex justify-center items-center h-screen">
-          <CartBadge count={3} />
+        <div>
+          <NotificationBar message="Ganhe 25% OFF no seu primeiro pedido." />
+          <Header />
         </div>
       </Router>
     </>
