@@ -2,10 +2,17 @@ import Checkbox from '../../atoms/Checkbox'
 
 type CategoriesFilterProps = {
   categories: string[]
+  selectedCategory: string | null
+  onCategoryChange: (category: string | null) => void
 }
 
 const CategoriesFilter = (props: CategoriesFilterProps) => {
-  const { categories } = props
+  const { categories, selectedCategory, onCategoryChange } = props
+
+  const handleCategoryChange = (category: string) => {
+    const newCategory = selectedCategory === category ? null : category
+    onCategoryChange(newCategory)
+  }
 
   return (
     <div className="border rounded-md border-tertiary-lightest py-4 px-6 w-full">
@@ -18,8 +25,8 @@ const CategoriesFilter = (props: CategoriesFilterProps) => {
           >
             <Checkbox
               label={category}
-              checked={false}
-              onChange={() => {}}
+              checked={selectedCategory === category}
+              onChange={() => handleCategoryChange(category)}
               value={category}
             />
           </div>

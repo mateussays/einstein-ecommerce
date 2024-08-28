@@ -1,16 +1,25 @@
-import { ChangeEventHandler, ReactNode } from 'react';
+import { ChangeEventHandler, ReactNode } from 'react'
 
 type TInputProps = {
-  placeholder?: string;
-  value: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
-  icon?: ReactNode; 
-  type?: string;
+  placeholder?: string
+  value: string
+  onChange: ChangeEventHandler<HTMLInputElement>
+  icon?: ReactNode
+  type?: string
   className?: string
-};
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
+}
 
-const Input = (props:TInputProps) => {
-  const { placeholder, value, onChange, icon, type = 'text', className = '' } = props;
+const Input = (props: TInputProps) => {
+  const {
+    placeholder,
+    value,
+    onKeyDown,
+    onChange,
+    icon,
+    type = 'text',
+    className = ''
+  } = props
 
   return (
     <div className={`relative ${className}`}>
@@ -18,6 +27,7 @@ const Input = (props:TInputProps) => {
         {icon}
       </div>
       <input
+        onKeyDown={onKeyDown}
         type={type}
         value={value}
         onChange={onChange}
@@ -25,8 +35,8 @@ const Input = (props:TInputProps) => {
         className="block pl-12 pr-3 py-2.5 text-sm text-tertiary-light font-medium border border-tertiary-lightest rounded-md focus:outline-none focus:ring-1 focus:ring-tertiary-light focus:border-transparent"
       />
     </div>
-  );
-};
+  )
+}
 
-export { Input };
-export default Input;
+export { Input }
+export default Input

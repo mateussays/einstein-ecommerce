@@ -8,6 +8,7 @@ type ProductListProps = {
 const ProductList = (props: ProductListProps) => {
   const { products } = props
 
+
   return (
     <div className="grid grid-cols-3 gap-8">
       {products.map(product => (
