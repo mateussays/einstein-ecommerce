@@ -3,15 +3,15 @@ import { useLocation } from 'react-router-dom';
 import {
   getProducts,
   getCategories,
-  type Product
 } from '../services/products-http';
-
-export type ProductSummary = Pick<Product, 'id' | 'image' | 'price' | 'title'>;
+import { Product } from '../types/product';
 
 const ITEMS_PER_PAGE = 9;
 
+export type Products = Pick<Product, 'id' | 'image' | 'price' | 'title' | 'category'>[];
+
 const useProducts = () => {
-  const [products, setProducts] = useState<ProductSummary[]>([]);
+  const [products, setProducts] = useState<Products>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,7 +58,8 @@ const useProducts = () => {
           id: product.id,
           image: product.image,
           price: product.price,
-          title: product.title
+          title: product.title,
+          category: product.category,
         }));
 
         setProducts(formattedData);

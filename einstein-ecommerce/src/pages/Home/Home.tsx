@@ -1,10 +1,11 @@
+import { useState, useEffect } from 'react'
+
 import Breadcrumb from '../../components/atoms/Breadcrumb'
 import Loading from '../../components/atoms/Loading'
 import Pagination from '../../components/atoms/Pagination'
 import CategoriesFilter from '../../components/molecules/CategoriesFilter'
 import ProductList from '../../components/organisms/ProductList'
 import useProducts from '../../hooks/useProducts'
-import { useState, useEffect } from 'react'
 
 const Home = () => {
   const {

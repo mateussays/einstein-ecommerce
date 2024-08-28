@@ -1,19 +1,38 @@
+import { useCart } from '../../../contexts/CartContext'
 import formatCurrency from '../../../utils/formatCurrency'
 import Tag from '../../atoms/Tag'
 import ProductImageCard from '../ProductImageCard'
 
-type ProductCardProps = {
+type Product = {
   title: string
   price: number
   image: string
+  id: number
+  category: string
 }
 
-const ProductCard = (props: ProductCardProps) => {
-  const { title, price, image } = props
+const ProductCard = (props: Product) => {
+  const { title, price, image, id, category } = props
+  const { addItemToCart } = useCart()
+
+  const handleAddToCart = () => {
+    const product = { 
+      id,
+      title,
+      price,
+      image,
+      category,
+      quantity: 1
+    }
+
+    addItemToCart(product)
+  }
+
+
 
   return (
     <div className="flex flex-col gap-6">
-      <ProductImageCard image={image} />
+      <ProductImageCard image={image} handleCart={handleAddToCart} />
       <div className="flex flex-col gap-3">
         <span className="text-sm font-medium text-primary-dark overflow-hidden text-ellipsis whitespace-nowrap">
           {title}

@@ -11,7 +11,7 @@ const Header = () => {
       <Navigation />
       <SearchBar />
       <div className="flex items center gap-8">
-        <CartBadge count={3} />
+        <CartBadge />
         <UserIconButton />
       </div>
     </header>

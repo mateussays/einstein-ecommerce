@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom"
 
 import { CartIcon } from "../Icons"
+import { useCart } from "../../../contexts/CartContext"
 
-type TCartBadgeProps = {
-  count: number
-}
 
-const CartBadge = (props: TCartBadgeProps) => {
-  const { count } = props
+const CartBadge = () => {
+  const { cartItems } = useCart()
+  const count = cartItems.reduce((total, item) => total + item.quantity, 0)
   return (
     <Link to="/cart" className="relative inline-block">
       {count > 0 && (

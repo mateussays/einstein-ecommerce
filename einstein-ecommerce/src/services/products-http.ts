@@ -1,11 +1,4 @@
-type Product = {
-  id: number
-  title: string
-  price: number
-  category: string
-  description: string
-  image: string
-}
+import { Product } from "../types/product"
 
 const getProducts = async (): Promise<Product[]> => {
   const response = await fetch('https://fakestoreapi.com/products')
@@ -26,4 +19,3 @@ const getCategories = async (): Promise<string[]> => {
 }
 
 export { getProducts, getCategories }
-export type { Product }

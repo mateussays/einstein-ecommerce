@@ -3,10 +3,11 @@ import { AddToCartIcon, HeartIcon } from '../../atoms/Icons'
 
 type ProductImageCardProps = {
   image: string
+  handleCart: () => void
 }
 
 const ProductImageCard = (props: ProductImageCardProps) => {
-  const { image } = props
+  const { image, handleCart } = props
 
   return (
     <div className="relative w-[240px] h-[312px] group flex flex-col rounded items-center justify-center bg-secondary-dark">
@@ -21,7 +22,7 @@ const ProductImageCard = (props: ProductImageCardProps) => {
       <div className="w-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0">
         <Button
           label="Add to cart"
-          onClick={() => {}}
+          onClick={handleCart}
           className="w-full rounded-b"
           icon={AddToCartIcon}
         />
