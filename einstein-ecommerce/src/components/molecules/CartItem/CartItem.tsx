@@ -12,7 +12,7 @@ const CartItem = (props: CartItemProps) => {
   const { imageSrc, productName, price, initialQuantity, onDelete } = props
 
   return (
-    <div className="flex items-center justify-between py-4 w-full gap-[100px]">
+    <div className="flex items-center justify-between w-full gap-[100px]">
       <div className="flex items-center gap-[34px]">
         <div className="bg-secondary-dark w-[80px] h-[80px] flex items-center justify-center rounded">
           <img
@@ -21,7 +21,7 @@ const CartItem = (props: CartItemProps) => {
             className="w-[44px] h-[62px] object-contain mix-blend-multiply"
           />
         </div>
-        <span className="text-sm text-primary-dark font-medium self-start">{productName}</span>
+        <span className="text-sm text-primary-dark font-medium self-start py-4">{productName}</span>
       </div>
       <div className="flex items-center gap-7">
         <span className="text-sm text-primary-dark font-medium">{`R$${price.toFixed(2)}`}</span>
