@@ -1,4 +1,5 @@
 import Breadcrumb from '../../components/atoms/Breadcrumb'
+import Loading from '../../components/atoms/Loading'
 import Pagination from '../../components/atoms/Pagination'
 import CategoriesFilter from '../../components/molecules/CategoriesFilter'
 import ProductList from '../../components/organisms/ProductList'
@@ -22,7 +23,7 @@ const Home = () => {
     fetchProductsByCategory(selectedCategory)
   }, [selectedCategory])
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return <Loading />
 
   return (
     <>

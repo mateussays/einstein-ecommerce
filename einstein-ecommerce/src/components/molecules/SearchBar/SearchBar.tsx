@@ -1,14 +1,23 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { SearchIcon } from '../../atoms/Icons'
 import Input from '../../atoms/Input/'
 
 const SearchBar = () => {
   const [query, setQuery] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleSearch = () => {
-    navigate(`?search=${query}`)
+    const isHome = location.pathname === '/'
+    const searchPath = `?search=${query}`
+
+    if (isHome) {
+      navigate(searchPath)
+    } else {
+      navigate(`/` + searchPath)
+    }
+
     setQuery('')
   }
 
