@@ -8,7 +8,7 @@ const OrderSummary = () => {
   const totalPrice = getTotalPrice()
 
   return (
-    <div className="flex flex-col border rounded border-tertiary-lightest pt-8 px-6 pb-10 w-full max-h-[430px]">
+    <div className="flex flex-col border rounded border-tertiary-lightest pt-8 px-6 pb-10 min-w-[341px] max-h-[430px]">
       <h1 className="text-base font-semibold text-primary-dark">
         Order Summary
       </h1>

@@ -1,15 +1,9 @@
+import { Product } from '../../../types/product'
 import QuantityInput from '../../atoms/QuantityInput'
 
-type CartItemProps = {
-  image: string
-  title: string
-  price: number
-  quantity: number
-  onDelete: () => void
-}
 
-const CartItem = (props: CartItemProps) => {
-  const { image, title, price, quantity, onDelete } = props
+const CartItem = (props: Product) => {
+  const { image, title, price, quantity, id } = props
 
   return (
     <div className="flex items-center justify-between w-full gap-[100px]">
@@ -25,7 +19,7 @@ const CartItem = (props: CartItemProps) => {
       </div>
       <div className="flex items-center gap-7">
         <span className="text-sm text-primary-dark font-medium">{`R$${price.toFixed(2)}`}</span>
-        <QuantityInput initialQuantity={quantity} onDelete={onDelete} />
+        <QuantityInput initialQuantity={quantity} id={id} />
       </div>
     </div>
   )

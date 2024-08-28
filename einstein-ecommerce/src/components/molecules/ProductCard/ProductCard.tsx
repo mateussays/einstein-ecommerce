@@ -31,7 +31,7 @@ const ProductCard = (props: Product) => {
 
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 max-w-[256px]">
       <ProductImageCard image={image} handleCart={handleAddToCart} />
       <div className="flex flex-col gap-3">
         <span className="text-sm font-medium text-primary-dark overflow-hidden text-ellipsis whitespace-nowrap">

@@ -6,7 +6,7 @@ const Cart = () => {
   return (
     <div>
       <Breadcrumb currentPage="Carrinho" showPageTitle />
-      <div className='flex gap-[122px] pl-[145px] pr-[115px] pt-[70px] pb-[40px]'>
+      <div className='flex justify-between gap-[122px] pl-[145px] pr-[115px] pt-[70px] pb-[40px]'>
         <CartList />
         <OrderSummary />
       </div>

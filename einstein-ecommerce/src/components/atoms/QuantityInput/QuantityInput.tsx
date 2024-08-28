@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { AddIcon, ExcludeIcon, MinusIcon } from '../Icons'
+import { useCart } from '../../../contexts/CartContext'
 
 type QuantityInputProps = {
   initialQuantity: number
-  onDelete: () => void
+  id: number
 }
 
 const QuantityInput = (props: QuantityInputProps) => {
-  const { initialQuantity, onDelete } = props
+
+  const { removeAllItems } = useCart()
+
+  const { initialQuantity, id } = props
 
   const [quantity, setQuantity] = useState(initialQuantity)
 
@@ -17,7 +21,7 @@ const QuantityInput = (props: QuantityInputProps) => {
     if (quantity > 1) {
       setQuantity(prev => prev - 1)
     } else {
-      onDelete()
+      removeAllItems(id)
     }
   }
 
@@ -27,7 +31,7 @@ const QuantityInput = (props: QuantityInputProps) => {
     if (isNaN(value)) {
       setQuantity(1)
     } else if (value < 1) {
-      onDelete()
+      removeAllItems(id)
     } else {
       setQuantity(value)
     }
@@ -57,7 +61,7 @@ const QuantityInput = (props: QuantityInputProps) => {
       </div>
       <button
         className="px-[9px] py-[4px] text-tertiary-dark bg-secondary-dark rounded-[4px] hover:bg-gray-200"
-        onClick={onDelete}
+        onClick={() => removeAllItems(id)}
       >
         <ExcludeIcon />
       </button>
