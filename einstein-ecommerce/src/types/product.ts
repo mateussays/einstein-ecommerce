@@ -5,4 +5,5 @@ export interface Product {
   quantity: number
   image: string
   category: string
+  totalPrice: number
 }

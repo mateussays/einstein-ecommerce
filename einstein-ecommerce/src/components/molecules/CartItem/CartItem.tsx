@@ -1,10 +1,13 @@
+import { useCart } from '../../../contexts/CartContext'
 import { Product } from '../../../types/product'
 import QuantityInput from '../../atoms/QuantityInput'
 
 
 const CartItem = (props: Product) => {
-  const { image, title, price, quantity, id } = props
-
+  const { image, title, quantity, id } = props
+  const { cartItems } = useCart()
+  const { totalPrice } = cartItems.find(item => item.id === id) ?? { totalPrice: 0 }
+  
   return (
     <div className="flex items-center justify-between w-full gap-[100px]">
       <div className="flex items-center gap-[34px]">
@@ -18,7 +21,7 @@ const CartItem = (props: Product) => {
         <span className="text-sm text-primary-dark font-medium self-start py-4">{title}</span>
       </div>
       <div className="flex items-center gap-7">
-        <span className="text-sm text-primary-dark font-medium">{`R$${price.toFixed(2)}`}</span>
+        <span className="text-sm text-primary-dark font-medium">{`R$${totalPrice.toFixed(2)}`}</span>
         <QuantityInput initialQuantity={quantity} id={id} />
       </div>
     </div>
