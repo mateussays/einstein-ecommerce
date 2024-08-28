@@ -33,7 +33,7 @@ const OrderSummary = () => {
         <p className="text-sm font-semibold text-primary-dark">{formatCurrency(totalPrice)}</p>
       </div>
 
-      <Button label="Checkout" onClick={() => {}} className="rounded" />
+      <Button label="Checkout" onClick={() => {}} className="rounded" disabled />
 
       <Link
         to="/"

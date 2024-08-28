@@ -34,6 +34,7 @@ const SearchBar = () => {
         value={query}
         onChange={e => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
+        onClick={handleSearch}
         icon={<SearchIcon />}
       />
     </div>

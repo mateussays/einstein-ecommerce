@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 
-import Breadcrumb from '../../components/atoms/Breadcrumb'
+import useProducts from '../../hooks/useProducts'
 import Loading from '../../components/atoms/Loading'
-import Pagination from '../../components/atoms/Pagination'
+import Breadcrumb from '../../components/atoms/Breadcrumb'
 import CategoriesFilter from '../../components/molecules/CategoriesFilter'
 import ProductList from '../../components/organisms/ProductList'
-import useProducts from '../../hooks/useProducts'
+import Pagination from '../../components/atoms/Pagination'
 
 const Home = () => {
   const {
@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       <Breadcrumb currentPage="Home" />
-      <div className="flex justify-between px-[126px] gap-7 mt-[39px]">
+      <div className="flex px-[126px] gap-7 mt-[39px]">
         <div className="min-w-[248px]">
           <CategoriesFilter
             categories={categories}
@@ -37,7 +37,7 @@ const Home = () => {
             onCategoryChange={setSelectedCategory}
           />
         </div>
-        <div className="flex flex-col min-w-[824px] gap-[38px] mb-[42px]">
+        <div className="flex flex-col gap-[38px] mb-[42px]">
           <ProductList products={products} />
           <div className="w-[344px] self-center">
             <Pagination

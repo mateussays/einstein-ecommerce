@@ -8,10 +8,8 @@ import { Product } from '../types/product';
 
 const ITEMS_PER_PAGE = 9;
 
-export type Products = Pick<Product, 'id' | 'image' | 'price' | 'title' | 'category'>[];
-
 const useProducts = () => {
-  const [products, setProducts] = useState<Products>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -60,6 +58,8 @@ const useProducts = () => {
           price: product.price,
           title: product.title,
           category: product.category,
+          totalPrice: product.price,
+          quantity: 1,
         }));
 
         setProducts(formattedData);

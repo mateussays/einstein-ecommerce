@@ -8,6 +8,7 @@ type TInputProps = {
   type?: string
   className?: string
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
+  onClick?: () => void
 }
 
 const Input = (props: TInputProps) => {
@@ -16,6 +17,7 @@ const Input = (props: TInputProps) => {
     value,
     onKeyDown,
     onChange,
+    onClick,
     icon,
     type = 'text',
     className = ''
@@ -23,7 +25,7 @@ const Input = (props: TInputProps) => {
 
   return (
     <div className={`relative ${className}`}>
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 cursor-pointer" onClick={onClick}>
         {icon}
       </div>
       <input
