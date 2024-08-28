@@ -1,12 +1,18 @@
 import Button from '../../atoms/Button'
 import { AddToCartIcon, HeartIcon } from '../../atoms/Icons'
 
-const ProductImageCard = () => {
+type ProductImageCardProps = {
+  image: string
+}
+
+const ProductImageCard = (props: ProductImageCardProps) => {
+  const { image } = props
+
   return (
     <div className="relative w-[240px] h-[312px] group flex flex-col rounded items-center justify-center bg-secondary-dark">
       <div className="w-36 mt-4">
         <img
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          src={image}
           alt="Produto"
           className=" w-full h-full object-fit group-hover:opacity-70 transition-opacity duration-300 mix-blend-multiply"
         />

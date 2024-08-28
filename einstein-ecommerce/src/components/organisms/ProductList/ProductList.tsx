@@ -1,17 +1,23 @@
+import { type ProductSummary } from '../../../hooks/useProducts'
 import ProductCard from '../../molecules/ProductCard'
 
-const ProductList = () => {
+type ProductListProps = {
+  products: ProductSummary[]
+}
+
+const ProductList = (props: ProductListProps) => {
+  const { products } = props
+
   return (
     <div className="grid grid-cols-3 gap-8">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map(product => (
+        <ProductCard
+          key={product.id}
+          title={product.title}
+          price={product.price}
+          image={product.image}
+        />
+      ))}
     </div>
   )
 }
