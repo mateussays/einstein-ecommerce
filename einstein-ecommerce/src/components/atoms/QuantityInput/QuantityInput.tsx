@@ -1,59 +1,44 @@
-import { useState } from 'react'
 import { AddIcon, ExcludeIcon, MinusIcon } from '../Icons'
 import { useCart } from '../../../contexts/CartContext'
+import { Product } from '../../../types/product'
 
-type QuantityInputProps = {
-  initialQuantity: number
-  id: number
-}
-
-const QuantityInput = (props: QuantityInputProps) => {
-
-  const { removeAllItems } = useCart()
-
-  const { initialQuantity, id } = props
-
-  const [quantity, setQuantity] = useState(initialQuantity)
-
-  const increaseQuantity = () => setQuantity(prev => prev + 1)
-  
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(prev => prev - 1)
-    } else {
-      removeAllItems(id)
-    }
+const QuantityInput = (props: Product) => {
+  const { addItemToCart, removeAllItems } = useCart()
+  const { quantity, id, price, title, image, category, totalPrice } = props
+  const updatedItem = {
+    id,
+    title,
+    price,
+    quantity,
+    image,
+    category,
+    totalPrice
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value, 10)
-    
-    if (isNaN(value)) {
-      setQuantity(1)
-    } else if (value < 1) {
-      removeAllItems(id)
+  const increaseQuantity = () => {
+    addItemToCart(updatedItem, 1)
+  }
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      addItemToCart(updatedItem, -1)
     } else {
-      setQuantity(value)
+      removeAllItems(id)
     }
   }
 
   return (
     <div className="flex items-center space-x-4">
-      <div className="h-[40px] flex items-center border rounded-[4px] border-tertiary-lightest py-3 px-4">
+      <div className="h-[40px] flex items-center border rounded-[4px] border-tertiary-lightest gap-3 py-3 px-4">
         <button
           className="text-tertiary-dark hover:text-gray-900"
           onClick={decreaseQuantity}
         >
-          <MinusIcon  />
+          <MinusIcon />
         </button>
-        <input
-          type="number"
-          value={quantity}
-          onChange={handleChange}
-          className="w-12 text-center border-none focus:ring-0 appearance-none"
-        />
+        {quantity}
         <button
-          className=" text-tertiary-dark hover:text-gray-900"
+          className="text-tertiary-dark hover:text-gray-900"
           onClick={increaseQuantity}
         >
           <AddIcon />
@@ -70,4 +55,3 @@ const QuantityInput = (props: QuantityInputProps) => {
 }
 
 export default QuantityInput
-export { QuantityInput }

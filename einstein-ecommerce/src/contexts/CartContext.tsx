@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react'
+import React, { createContext, useContext, useReducer, ReactNode } from 'react'
 import { Product } from '../types/product'
 import { cartReducer } from './cartReducer'
 
@@ -19,8 +19,6 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, dispatch] = useReducer(cartReducer, [])
-
-
 
   const addItemToCart = (item: Product, quantity = 1) => {
     const existingItem = cartItems.find(cartItem => cartItem.id === item.id)
@@ -44,7 +42,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   }
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
+    return cartItems.reduce((total, item) => total + item.totalPrice, 0)
   }
 
   return (

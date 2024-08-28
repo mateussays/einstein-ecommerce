@@ -4,7 +4,7 @@ import QuantityInput from '../../atoms/QuantityInput'
 
 
 const CartItem = (props: Product) => {
-  const { image, title, quantity, id } = props
+  const { image, title, id } = props
   const { cartItems } = useCart()
   const { totalPrice } = cartItems.find(item => item.id === id) ?? { totalPrice: 0 }
   
@@ -15,14 +15,14 @@ const CartItem = (props: Product) => {
           <img
             src={image}
             alt={title}
-            className="w-[44px] h-[62px] object-contain mix-blend-multiply"
+            className="w-[100px] h-[62px] object-contain mix-blend-multiply max-w-none"
           />
         </div>
         <span className="text-sm text-primary-dark font-medium self-start py-4">{title}</span>
       </div>
       <div className="flex items-center gap-7">
         <span className="text-sm text-primary-dark font-medium">{`R$${totalPrice.toFixed(2)}`}</span>
-        <QuantityInput initialQuantity={quantity} id={id} />
+        <QuantityInput {...props} />
       </div>
     </div>
   )
