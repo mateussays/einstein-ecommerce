@@ -5,7 +5,6 @@ type CartAction =
   | { type: 'UPDATE_ITEM'; payload: Product }
   | { type: 'REMOVE_ITEM'; payload: { id: string | number } }
   | { type: 'REMOVE_ALL_ITEMS'; payload: { id: string | number } }
-  | { type: 'CLEAR_CART' }
 
 export const cartReducer = (
   state: Product[],
@@ -70,9 +69,6 @@ export const cartReducer = (
     }
     case 'REMOVE_ALL_ITEMS': {
       return state.filter(item => item.id !== action.payload.id)
-    }
-    case 'CLEAR_CART': {
-      return []
     }
     default:
       throw new Error(`Unknown action`)

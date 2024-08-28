@@ -7,7 +7,6 @@ type CartContextType = {
   addItemToCart: (item: Product, quantity?: number) => void
   removeItemFromCart: (itemId: string | number) => void
   removeAllItems: (itemId: string | number) => void
-  clearCart: () => void
   getTotalPrice: () => number
 }
 
@@ -37,10 +36,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     dispatch({ type: 'REMOVE_ALL_ITEMS', payload: { id: itemId } })
   }
 
-  const clearCart = () => {
-    dispatch({ type: 'CLEAR_CART' })
-  }
-
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.totalPrice, 0)
   }
@@ -52,7 +47,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         addItemToCart,
         removeItemFromCart,
         removeAllItems,
-        clearCart,
         getTotalPrice
       }}
     >

@@ -38,14 +38,24 @@ const Home = () => {
           />
         </div>
         <div className="flex flex-col gap-[38px] mb-[42px]">
-          <ProductList products={products} />
-          <div className="w-[344px] self-center">
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
-          </div>
+          {!products.length && (
+            <div className="self-center text-primary-dark text-base">
+              Nenhum produto encontrado :(
+            </div>
+          )}
+
+          {!!products.length && (
+            <>
+              <ProductList products={products} />
+              <div className="w-[344px] self-center">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
