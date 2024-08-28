@@ -21,7 +21,7 @@ const CartList = () => {
 
   return (
     <div>
-      <div className=" border-b border-[#E9E9EB] mb-12">
+      <div className=" border-b border-[#E9E9EB] mb-12 w-full">
         <h1 className="text-base font-semibold text-primary-dark mb-[18px]">
           Seu carrinho
         </h1>
