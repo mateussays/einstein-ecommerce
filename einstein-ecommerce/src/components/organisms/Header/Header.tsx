@@ -1,6 +1,6 @@
 import CartBadge from '../../atoms/CartBadge/CartBadge'
-import IconButton from '../../atoms/IconButton/IconButton'
 import Logo from '../../atoms/Logo'
+import UserIconButton from '../../atoms/UserIconButton'
 import Navigation from '../../molecules/Navigation'
 import SearchBar from '../../molecules/SearchBar/SearchBar'
 
@@ -12,7 +12,7 @@ const Header = () => {
       <SearchBar />
       <div className="flex items center gap-8">
         <CartBadge count={3} />
-        <IconButton onClick={() => {}} />
+        <UserIconButton />
       </div>
     </header>
   )

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { ChevronRight } from '../Icons'
 
 type BreadcrumbProps = {
@@ -11,12 +13,12 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     <nav className="bg-secondary-dark py-[18px] pl-[162px]" aria-label="Breadcrumb">
       <ol className="list-reset flex">
         <li className="flex items-center">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="hover:underline text-tertiary-dark text-sm font-medium"
           >
             Ecommerce
-          </a>
+          </Link>
           <ChevronRight />
         </li>
         <li className="flex items-center">
