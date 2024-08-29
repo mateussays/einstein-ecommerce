@@ -11,7 +11,7 @@ const Breadcrumb = ({ currentPage, showPageTitle = false }: BreadcrumbProps) => 
 
   return (
     <nav
-      className={`bg-secondary-dark ${paddingClass} pl-[162px] flex flex-col gap-2`}
+      className={`bg-secondary-dark ${paddingClass}  pl-8 md:pl-[162px] flex flex-col gap-2`}
       aria-label="Breadcrumb"
     >
       {showPageTitle && (

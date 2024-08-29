@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Button from '../../atoms/Button'
 import { AddToCartIcon, HeartIcon } from '../../atoms/Icons'
+import useResponsive from '../../../hooks/useResponsive'
 
 type ProductImageCardProps = {
   image: string
@@ -10,6 +11,7 @@ type ProductImageCardProps = {
 
 const ProductImageCard = ({ image, handleCart, id }: ProductImageCardProps) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false)
+  const isMobile = useResponsive('sm')
 
   useEffect(() => {
     const checkFavorite = () => {
@@ -49,14 +51,25 @@ const ProductImageCard = ({ image, handleCart, id }: ProductImageCardProps) => {
         />
       </div>
 
-      <div className="w-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0">
-        <Button
-          label="Add to cart"
-          onClick={handleCart}
-          className="w-full rounded-b"
-          icon={AddToCartIcon}
-        />
-      </div>
+      {!isMobile ? (
+        <div className="w-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0">
+          <Button
+            label="Add to cart"
+            onClick={handleCart}
+            className="w-full rounded-b"
+            icon={AddToCartIcon}
+          />
+        </div>
+      ) : (
+        <div className="w-full mt-2 absolute bottom-0 left-0">
+          <Button
+            label="Add to cart"
+            onClick={handleCart}
+            className="w-full rounded-b"
+            icon={AddToCartIcon}
+          />
+        </div>
+      )}
 
       <button
         className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
