@@ -22,7 +22,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div>
+    <>
       <Input
         placeholder="Procure um produto"
         value={query}
@@ -31,7 +31,7 @@ const SearchBar = () => {
         onClick={handleSearch}
         icon={<SearchIcon />}
       />
-    </div>
+    </>
   )
 }
 

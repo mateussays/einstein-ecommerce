@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       <Breadcrumb currentPage="Home" />
-      <div className="flex px-[126px] gap-7 mt-[39px]">
+      <div className="flex flex-col md:flex-row px-[126px] gap-7 mt-[39px]">
         <div className="min-w-[248px]">
           <CategoriesFilter
             categories={categories}
