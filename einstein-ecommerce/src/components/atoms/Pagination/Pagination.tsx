@@ -12,19 +12,15 @@ const Pagination = ({
   totalPages,
   onPageChange
 }: PaginationProps) => {
+  
   const handlePageChange = (page: number | string) => {
-    if (
-      page === '...' ||
-      typeof page !== 'number' ||
-      page < 1 ||
-      page > totalPages
-    )
-      return
-    onPageChange(page)
+    if (typeof page === 'number' && page >= 1 && page <= totalPages) {
+      onPageChange(page)
+    }
   }
 
   return (
-    <div className="flex items-center justify-center border gap-2 rounded-lg border-[#e9e9eb] py-[6px] px-2">
+    <div className="flex items-center justify-center border gap-2 rounded-lg border-[#e9e9eb] py-1 px-2">
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -36,11 +32,11 @@ const Pagination = ({
         <button
           key={index}
           onClick={() => handlePageChange(page)}
-          className={`px-4 py-1 ${
+          className={`px-4 py-1 rounded ${
             page === currentPage
               ? 'bg-secondary-dark text-primary-dark'
               : 'bg-white text-primary-dark'
-          } rounded ${page === '...' ? 'cursor-default' : ''}`}
+          } ${page === '...' ? 'cursor-default' : ''}`}
           disabled={page === '...'}
         >
           {page}

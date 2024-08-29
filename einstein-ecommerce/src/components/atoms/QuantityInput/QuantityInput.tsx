@@ -2,9 +2,17 @@ import { AddIcon, ExcludeIcon, MinusIcon } from '../Icons'
 import { useCart } from '../../../contexts/CartContext'
 import { Product } from '../../../types/product'
 
-const QuantityInput = (props: Product) => {
+const QuantityInput = ({
+  quantity,
+  id,
+  price,
+  title,
+  image,
+  category,
+  totalPrice
+}: Product) => {
   const { addItemToCart, removeAllItems } = useCart()
-  const { quantity, id, price, title, image, category, totalPrice } = props
+
   const updatedItem = {
     id,
     title,
@@ -29,14 +37,14 @@ const QuantityInput = (props: Product) => {
 
   return (
     <div className="flex items-center space-x-4">
-      <div className="h-[40px] flex items-center border rounded-[4px] border-tertiary-lightest gap-3 py-3 px-4">
+      <div className="flex items-center border rounded border-tertiary-lightest py-1 px-2 gap-3">
         <button
           className="text-tertiary-dark hover:text-gray-900"
           onClick={decreaseQuantity}
         >
           <MinusIcon />
         </button>
-        {quantity}
+        <span>{quantity}</span>
         <button
           className="text-tertiary-dark hover:text-gray-900"
           onClick={increaseQuantity}
@@ -45,7 +53,7 @@ const QuantityInput = (props: Product) => {
         </button>
       </div>
       <button
-        className="px-[9px] py-[4px] text-tertiary-dark bg-secondary-dark rounded-[4px] hover:bg-gray-200"
+        className="px-2 py-1 text-tertiary-dark bg-secondary-dark rounded hover:bg-gray-200"
         onClick={() => removeAllItems(id)}
       >
         <ExcludeIcon />

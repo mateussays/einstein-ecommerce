@@ -1,8 +1,8 @@
 type CheckboxProps = {
   label: string
   checked: boolean
-  onChange: () => void
   value: string
+  onChange: () => void
 }
 
 const Checkbox = ({ label, checked, onChange, value }: CheckboxProps) => {
@@ -16,13 +16,15 @@ const Checkbox = ({ label, checked, onChange, value }: CheckboxProps) => {
         value={value}
       />
       <div
-        className={`w-[18px] h-[18px] flex items-center justify-center border-2 rounded ${
-          checked ? 'bg-tertiary-dark border-tertiary-dark' : 'border-tertiary-lightest'
+        className={`w-4 h-4 flex items-center justify-center border-2 rounded ${
+          checked
+            ? 'bg-tertiary-dark border-tertiary-dark'
+            : 'border-tertiary-lightest'
         }`}
       >
         {checked && (
           <svg
-            className="w-4 h-4 text-white"
+            className="w-3.5 h-3.5 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -37,7 +39,9 @@ const Checkbox = ({ label, checked, onChange, value }: CheckboxProps) => {
           </svg>
         )}
       </div>
-      {label && <span className="text-tertiary-dark text-sm font-normal ml-1">{label}</span>}
+      {label && (
+        <span className="text-tertiary-dark text-sm ml-1">{label}</span>
+      )}
     </label>
   )
 }
