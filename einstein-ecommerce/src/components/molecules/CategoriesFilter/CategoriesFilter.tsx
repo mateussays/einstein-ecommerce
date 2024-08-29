@@ -6,9 +6,12 @@ type CategoriesFilterProps = {
   onCategoryChange: (category: string | null) => void
 }
 
-const CategoriesFilter = (props: CategoriesFilterProps) => {
-  const { categories, selectedCategory, onCategoryChange } = props
-
+const CategoriesFilter = ({
+  categories,
+  selectedCategory,
+  onCategoryChange
+}: CategoriesFilterProps) => {
+  
   const handleCategoryChange = (category: string) => {
     const newCategory = selectedCategory === category ? null : category
     onCategoryChange(newCategory)
@@ -17,11 +20,11 @@ const CategoriesFilter = (props: CategoriesFilterProps) => {
   return (
     <div className="border rounded-md border-tertiary-lightest py-4 px-6 w-full">
       <h2 className="text-sm text-primary-dark font-medium mb-4">Categories</h2>
-      <div className="">
-        {categories.map((category, index) => (
+      <div>
+        {categories.map(category => (
           <div
-            key={index}
-            className="border-b border-tertiary-lightest py-3 last:mb-[147px]"
+            key={category}
+            className="border-b border-tertiary-lightest py-3 last:mb-36"
           >
             <Checkbox
               label={category}

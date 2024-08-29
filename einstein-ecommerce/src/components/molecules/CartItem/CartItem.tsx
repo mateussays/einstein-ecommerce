@@ -1,28 +1,32 @@
 import { useCart } from '../../../contexts/CartContext'
 import { Product } from '../../../types/product'
+import formatCurrency from '../../../utils/formatCurrency'
 import QuantityInput from '../../atoms/QuantityInput'
 
-
-const CartItem = (props: Product) => {
-  const { image, title, id } = props
+const CartItem = ({ image, title, id, price, quantity, category }: Product) => {
   const { cartItems } = useCart()
-  const { totalPrice } = cartItems.find(item => item.id === id) ?? { totalPrice: 0 }
-  
+  const item = cartItems.find(item => item.id === id)
+  const totalPrice = item ? item.totalPrice : 0
+
   return (
-    <div className="flex items-center justify-between w-full gap-[100px]">
-      <div className="flex items-center gap-[34px]">
-        <div className="bg-secondary-dark w-[80px] h-[80px] flex items-center justify-center rounded">
+    <div className="flex items-center justify-between w-full gap-24">
+      <div className="flex items-center gap-8">
+        <div className="bg-secondary-dark w-20 h-20 flex items-center justify-center rounded">
           <img
             src={image}
             alt={title}
-            className="w-[100px] h-[62px] object-contain mix-blend-multiply max-w-none"
+            className="w-24 h-16 object-contain mix-blend-multiply"
           />
         </div>
-        <span className="text-sm text-primary-dark font-medium self-start py-4">{title}</span>
+        <span className="text-sm text-primary-dark font-medium py-4">
+          {title}
+        </span>
       </div>
       <div className="flex items-center gap-7">
-        <span className="text-sm text-primary-dark font-medium">{`R$${totalPrice.toFixed(2)}`}</span>
-        <QuantityInput {...props} />
+        <span className="text-sm text-primary-dark font-medium whitespace-nowrap">{formatCurrency(totalPrice)}</span>
+        <QuantityInput
+          {...{ image, title, id, totalPrice, price, quantity, category }}
+        />
       </div>
     </div>
   )

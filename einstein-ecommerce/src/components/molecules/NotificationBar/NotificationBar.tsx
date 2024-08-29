@@ -1,15 +1,12 @@
 type TNotificationBarProps = {
-  message: string
-}
+  message: string;
+};
 
-const NotificationBar = (props: TNotificationBarProps) => {
-  const { message } = props
-  return (
-    <div className="bg-primary-light min-h-[40px] flex items-center justify-center"            data-testid="notification-bar">
-      <p className="text-secondary-light text-sm font-normal">{message}</p>
-    </div>
-  )
-}
+const NotificationBar = ({ message }: TNotificationBarProps) => (
+  <div className="bg-primary-light min-h-[40px] flex items-center justify-center">
+    <p className="text-secondary-light text-sm font-normal">{message}</p>
+  </div>
+);
 
-export { NotificationBar }
-export default NotificationBar
+export default NotificationBar;
+export { NotificationBar };

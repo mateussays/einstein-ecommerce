@@ -8,41 +8,35 @@ type ProductImageCardProps = {
   handleCart: () => void
 }
 
-const ProductImageCard = (props: ProductImageCardProps) => {
-  const { image, handleCart, id } = props
-
+const ProductImageCard = ({ image, handleCart, id }: ProductImageCardProps) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false)
 
   useEffect(() => {
     const checkFavorite = () => {
-      const favoritesString = localStorage.getItem('favorites')
-      const favorites: number[] = favoritesString
-        ? JSON.parse(favoritesString)
-        : []
+      const favorites = JSON.parse(
+        localStorage.getItem('favorites') || '[]'
+      ) as number[]
       setIsFavorite(favorites.includes(id))
     }
-
     checkFavorite()
   }, [id])
 
-  const handleFavoriteItem = (itemId: number) => {
-    const favoritesString = localStorage.getItem('favorites')
-    const favorites: number[] = favoritesString
-      ? JSON.parse(favoritesString)
-      : []
-
+  const toggleFavorite = (itemId: number) => {
+    const favorites = JSON.parse(
+      localStorage.getItem('favorites') || '[]'
+    ) as number[]
     const isCurrentlyFavorite = favorites.includes(itemId)
 
     if (isCurrentlyFavorite) {
-      const updatedFavorites = favorites.filter(id => id !== itemId)
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify(favorites.filter(id => id !== itemId))
+      )
       setIsFavorite(false)
-      return
+    } else {
+      localStorage.setItem('favorites', JSON.stringify([...favorites, itemId]))
+      setIsFavorite(true)
     }
-
-    favorites.push(itemId)
-    localStorage.setItem('favorites', JSON.stringify(favorites))
-    setIsFavorite(true)
   }
 
   return (
@@ -66,7 +60,7 @@ const ProductImageCard = (props: ProductImageCardProps) => {
 
       <button
         className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        onClick={() => handleFavoriteItem(id)}
+        onClick={() => toggleFavorite(id)}
       >
         <HeartIcon
           fillColor={isFavorite ? '#b36e6e' : 'transparent'}
