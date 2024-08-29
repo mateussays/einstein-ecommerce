@@ -39,7 +39,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-[38px] mb-[42px] w-full items-center md:items-start">
+        <div className="flex flex-col gap-[38px] mb-[42px] w-full items-center">
           {!products.length && (
             <div className="text-primary-dark text-base">
               Nenhum produto encontrado :(

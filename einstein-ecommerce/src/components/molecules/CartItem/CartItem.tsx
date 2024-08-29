@@ -9,13 +9,13 @@ const CartItem = ({ image, title, id, price, quantity, category }: Product) => {
   const totalPrice = item ? item.totalPrice : 0
 
   return (
-    <div className="flex items-center justify-between w-full gap-24">
-      <div className="flex items-center gap-8">
+    <div className="flex  flex-col md:flex-row items-center md:justify-between w-full md:gap-24 gap-6">
+      <div className="md:flex md:items-center gap-8 grid grid-cols-2 w-full">
         <div className="bg-secondary-dark w-20 h-20 flex items-center justify-center rounded">
           <img
             src={image}
             alt={title}
-            className="w-24 h-16 object-contain mix-blend-multiply"
+            className="w-24 h-16 object-contain mix-blend-multiply md:max-w-none"
           />
         </div>
         <span className="text-sm text-primary-dark font-medium py-4">
@@ -23,7 +23,9 @@ const CartItem = ({ image, title, id, price, quantity, category }: Product) => {
         </span>
       </div>
       <div className="flex items-center gap-7">
-        <span className="text-sm text-primary-dark font-medium whitespace-nowrap">{formatCurrency(totalPrice)}</span>
+        <span className="text-sm text-primary-dark font-medium whitespace-nowrap">
+          {formatCurrency(totalPrice)}
+        </span>
         <QuantityInput
           {...{ image, title, id, totalPrice, price, quantity, category }}
         />
