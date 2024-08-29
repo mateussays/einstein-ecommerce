@@ -9,16 +9,16 @@ const ExcludeIcon = () => (
     <path
       d="M16 11L6 21"
       stroke="#5C5F6A"
-      stroke-width="1.7"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M6 11L16 21"
       stroke="#5C5F6A"
-      stroke-width="1.7"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )

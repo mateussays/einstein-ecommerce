@@ -9,9 +9,9 @@ const MinusIcon = () => (
     <path
       d="M3.33325 8H11.3333"
       stroke="#5C5F6A"
-      stroke-width="1.7"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )

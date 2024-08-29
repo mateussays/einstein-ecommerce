@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+  useCallback
+} from 'react'
 import { Product } from '../types/product'
 import { cartReducer } from './cartReducer'
 
@@ -19,26 +25,35 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, dispatch] = useReducer(cartReducer, [])
 
-  const addItemToCart = (item: Product, quantity = 1) => {
-    const existingItem = cartItems.find(cartItem => cartItem.id === item.id)
-    if (existingItem) {
-      dispatch({ type: 'UPDATE_ITEM', payload: { ...existingItem, quantity: existingItem.quantity + quantity } })
-    } else {
-      dispatch({ type: 'ADD_ITEM', payload: { ...item, quantity } })
-    }
-  }
+  const addItemToCart = useCallback(
+    (item: Product, quantity = 1) => {
+      const existingItem = cartItems.find(cartItem => cartItem.id === item.id)
+      if (existingItem) {
+        dispatch({
+          type: 'UPDATE_ITEM',
+          payload: {
+            ...existingItem,
+            quantity: existingItem.quantity + quantity
+          }
+        })
+      } else {
+        dispatch({ type: 'ADD_ITEM', payload: { ...item, quantity } })
+      }
+    },
+    [cartItems]
+  )
 
-  const removeItemFromCart = (itemId: string | number) => {
+  const removeItemFromCart = useCallback((itemId: string | number) => {
     dispatch({ type: 'REMOVE_ITEM', payload: { id: itemId } })
-  }
+  }, [])
 
-  const removeAllItems = (itemId: string | number) => {
+  const removeAllItems = useCallback((itemId: string | number) => {
     dispatch({ type: 'REMOVE_ALL_ITEMS', payload: { id: itemId } })
-  }
+  }, [])
 
-  const getTotalPrice = () => {
+  const getTotalPrice = useCallback(() => {
     return cartItems.reduce((total, item) => total + item.totalPrice, 0)
-  }
+  }, [cartItems])
 
   return (
     <CartContext.Provider
